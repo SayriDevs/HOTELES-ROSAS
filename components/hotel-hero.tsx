@@ -1,0 +1,122 @@
+"use client"
+
+import Link from "next/link"
+import { Button } from "@/components/ui/button"
+import { Card, CardContent } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
+import { Star, MapPin, Phone, Mail, Users } from "lucide-react"
+
+interface HotelHeroProps {
+  hotel: {
+    name: string
+    description: string
+    longDescription: string
+    location: string
+    phone: string
+    email: string
+    rating: number
+    totalRooms: number
+    heroImage: string
+    color: string
+  }
+}
+
+export function HotelHero({ hotel }: HotelHeroProps) {
+  const colorClasses = {
+    blue: "text-blue-600 bg-blue-50",
+    amber: "text-amber-600 bg-amber-50",
+    purple: "text-purple-600 bg-purple-50",
+    rose: "text-rose-600 bg-rose-50",
+  }
+
+  const colorClass = colorClasses[hotel.color as keyof typeof colorClasses] || colorClasses.blue
+
+  return (
+    <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
+      {/* Background Image */}
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: `url('${hotel.heroImage}')`,
+        }}
+      >
+        <div className="absolute inset-0 bg-black/50" />
+      </div>
+
+      {/* Content */}
+      <div className="relative z-10 container mx-auto px-4">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+          <div className="text-white">
+            <Badge variant="secondary" className="mb-4 bg-white/20 text-white border-white/30">
+              <Star className="w-3 h-3 mr-1 fill-yellow-400 text-yellow-400" />
+              {hotel.rating} Estrellas
+            </Badge>
+
+            <h1 className="font-serif font-bold text-4xl md:text-5xl mb-4">{hotel.name}</h1>
+            <p className="text-xl mb-6 leading-relaxed">{hotel.description}</p>
+
+            <div className="flex flex-col sm:flex-row gap-4 mb-8">
+              <Link href="/reservations">
+                <Button size="lg" className="text-lg px-8">
+                  Reservar Ahora
+                </Button>
+              </Link>
+              <Button
+                variant="outline"
+                size="lg"
+                className="text-lg px-8 bg-white/10 border-white/30 text-white hover:bg-white/20"
+                onClick={() => document.getElementById("rooms-section")?.scrollIntoView({ behavior: "smooth" })}
+              >
+                Ver Habitaciones
+              </Button>
+            </div>
+          </div>
+
+          <Card className="bg-white/95 backdrop-blur-sm">
+            <CardContent className="p-6">
+              <h3 className="font-serif font-semibold text-xl mb-4">Información del Hotel</h3>
+
+              <div className="space-y-4">
+                <div className="flex items-start space-x-3">
+                  <MapPin className="h-5 w-5 text-primary mt-0.5" />
+                  <div>
+                    <div className="font-medium">Ubicación</div>
+                    <div className="text-sm text-muted-foreground">{hotel.location}</div>
+                  </div>
+                </div>
+
+                <div className="flex items-start space-x-3">
+                  <Phone className="h-5 w-5 text-primary mt-0.5" />
+                  <div>
+                    <div className="font-medium">Teléfono</div>
+                    <div className="text-sm text-muted-foreground">{hotel.phone}</div>
+                  </div>
+                </div>
+
+                <div className="flex items-start space-x-3">
+                  <Mail className="h-5 w-5 text-primary mt-0.5" />
+                  <div>
+                    <div className="font-medium">Email</div>
+                    <div className="text-sm text-muted-foreground">{hotel.email}</div>
+                  </div>
+                </div>
+
+                <div className="flex items-start space-x-3">
+                  <Users className="h-5 w-5 text-primary mt-0.5" />
+                  <div>
+                    <div className="font-medium">Habitaciones</div>
+                    <div className="text-sm text-muted-foreground">{hotel.totalRooms} habitaciones de lujo</div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-6 pt-6 border-t">
+                <p className="text-sm text-muted-foreground leading-relaxed">{hotel.longDescription}</p>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+    </section>
+  )
+}
