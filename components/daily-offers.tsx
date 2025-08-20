@@ -199,7 +199,7 @@ export function DailyOffers() {
           <div className="bg-muted/50 p-3 rounded-lg">
             <div className="text-sm font-medium mb-1">Cómo obtener esta oferta:</div>
             <div className="text-sm text-muted-foreground">
-              Usa la palabra mágica "{magicWord}" al hacer tu reserva para obtener {discount}% de descuento + esta
+              Usa la palabra mágica &quot;{magicWord}&quot; al hacer tu reserva para obtener {discount}% de descuento + esta
               oferta especial gratuita.
             </div>
           </div>
