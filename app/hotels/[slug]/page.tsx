@@ -1,7 +1,6 @@
 import { notFound } from "next/navigation"
 import { Navigation } from "@/components/navigation"
 import { HotelHero } from "@/components/hotel-hero"
-import { RoomGallery } from "@/components/room-gallery"
 import { HotelAmenities } from "@/components/hotel-amenities"
 import { ChatbotWidget } from "@/components/chatbot-widget"
 
@@ -95,81 +94,20 @@ const hotelsData = {
   },
 }
 
-const roomTypes = {
-  hilton: [
-    {
-      name: "Habitación Estándar",
-      description: "Confort y elegancia con todas las facilidades modernas para una estancia placentera.",
-      size: "45 m²",
-      capacity: "2 adultos",
-      price: "$320/noche",
-      image: "/hilton-deluxe-room.png",
-      amenities: ["Cama de 2 plazas", "Baño propio", "Agua caliente", "Internet y Smart TV"],
-    },
-  ],
-  ritz: [
-    {
-      name: "Habitación Económica",
-      description: "Confortable y funcional. Ideal para estancias cortas. Tarifa especial por 6 horas disponible.",
-      size: "40 m²",
-      capacity: "2 adultos",
-      price: "S/ 40 por noche (o S/ 30 por 6 horas)",
-      image: "/ritz-royal-room.png",
-      amenities: ["Cama de 2 plazas", "Baño propio", "Agua caliente", "Internet y Smart TV"],
-    },
-  ],
-  vegas: [
-    {
-      name: "Habitación Ultra HD",
-      description: "Sumérgete en el entretenimiento con una Smart TV de 60 pulgadas y un ambiente moderno.",
-      size: "50 m²",
-      capacity: "2 adultos",
-      price: "$280/noche",
-      image: "/vegas-show-room.png",
-      amenities: ["Smart TV de 60 pulgadas", "Cama de 2 plazas", "Baño propio", "Agua caliente", "Internet"],
-    },
-  ],
-  venus: [
-    {
-      name: "Habitación Doble",
-      description: "Perfecta para familias o amigos, equipada con dos cómodas camas de 2 plazas.",
-      size: "60 m²",
-      capacity: "4 adultos",
-      price: "$420/noche",
-      image: "/venus-star-room.png",
-      amenities: ["2 camas de 2 plazas", "Baño propio", "Agua caliente", "Internet y Smart TV"],
-    },
-    {
-      name: "Habitación Triple",
-      description: "Espacio y confort para grupos, con tres camas de 2 plazas para una estancia ideal.",
-      size: "75 m²",
-      capacity: "6 adultos",
-      price: "$520/noche",
-      image: "/venus-celestial-suite.png",
-      amenities: ["3 camas de 2 plazas", "Baño propio", "Agua caliente", "Internet y Smart TV"],
-    },
-  ],
-}
-
 export default function HotelPage({ params }: { params: { slug: string } }) {
   const hotelData = hotelsData[params.slug as keyof typeof hotelsData]
-  const rooms = roomTypes[params.slug as keyof typeof roomTypes]
 
   if (!hotelData) {
     notFound()
   }
 
-  const hotel = {
-    ...hotelData,
-    slug: params.slug,
-  }
+  const hotel = hotelData
 
   return (
     <main className="min-h-screen">
       <Navigation />
       <HotelHero hotel={hotel} />
       <HotelAmenities amenities={hotel.amenities} hotelName={hotel.name} />
-      {params.slug !== "hilton" && <RoomGallery rooms={rooms} hotelName={hotel.name} />}
       <ChatbotWidget />
     </main>
   )
