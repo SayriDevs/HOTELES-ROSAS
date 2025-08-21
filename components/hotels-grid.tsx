@@ -9,11 +9,10 @@ const hotels = [
     name: "Hotel Hilton",
     slug: "hilton",
     icon: Building2,
-    description: "Elegancia clásica y servicio excepcional en el corazón de la ciudad",
+    description: "Confort y accesibilidad garantizada con nuestro moderno ascensor. Ideal para todos nuestros huéspedes.",
     image: "/elegant-classic-hilton.png",
-    location: "Centro Financiero",
+    location: "Jr. Las Perlas con Av. Jardines",
     rooms: "120 Habitaciones",
-    rating: 4.8,
     color: "text-blue-600",
     bgColor: "bg-blue-50",
   },
@@ -21,11 +20,10 @@ const hotels = [
     name: "Hotel Ritz",
     slug: "ritz",
     icon: Crown,
-    description: "Lujo refinado y tradición centenaria con servicios de clase mundial",
+    description: "Disfruta del lujo a un precio inteligente. Ofrecemos tarifas por noche o por horas para máxima flexibilidad.",
     image: "/luxury-hotel.png",
-    location: "Zona Exclusiva",
+    location: "Jr. Las Perlas con Av. Jardines",
     rooms: "85 Suites",
-    rating: 4.9,
     color: "text-amber-600",
     bgColor: "bg-amber-50",
   },
@@ -33,11 +31,10 @@ const hotels = [
     name: "Hotel Vegas",
     slug: "vegas",
     icon: Sparkles,
-    description: "Entretenimiento y glamour sin límites en un ambiente vibrante",
+    description: "Vive la modernidad en nuestro hotel más nuevo, equipado con Smart TVs de 60 pulgadas para tu entretenimiento.",
     image: "/modern-vegas-hotel.png",
-    location: "Distrito de Entretenimiento",
+    location: "Jr. Las Perlas con Av. Jardines",
     rooms: "200 Habitaciones",
-    rating: 4.7,
     color: "text-purple-600",
     bgColor: "bg-purple-50",
   },
@@ -45,11 +42,10 @@ const hotels = [
     name: "Hotel Venus",
     slug: "venus",
     icon: Star,
-    description: "Experiencia celestial y confort supremo con vistas panorámicas",
+    description: "Perfecto para familias y grupos. Ofrecemos amplias habitaciones dobles y triples para su comodidad.",
     image: "/celestial-luxury-hotel.png",
-    location: "Vista Panorámica",
+    location: "Av. 13 de Enero con Orquideas",
     rooms: "150 Habitaciones",
-    rating: 4.8,
     color: "text-rose-600",
     bgColor: "bg-rose-50",
   },
@@ -75,12 +71,6 @@ export function HotelsGrid() {
                 <div className="relative">
                   <div className="h-48 bg-cover bg-center" style={{ backgroundImage: `url('${hotel.image}')` }}>
                     <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
-                    <div className="absolute top-4 right-4">
-                      <Badge variant="secondary" className="bg-white/90 text-black">
-                        <Star className="w-3 h-3 mr-1 fill-yellow-400 text-yellow-400" />
-                        {hotel.rating}
-                      </Badge>
-                    </div>
                   </div>
                 </div>
 
