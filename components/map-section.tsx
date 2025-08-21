@@ -3,7 +3,6 @@
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet"
 import "leaflet/dist/leaflet.css"
 import L from "leaflet"
-import { Button } from "@/components/ui/button"
 
 // Placeholder coordinates for the two locations
 const locations = [
@@ -54,10 +53,13 @@ export function MapSection() {
                   <div className="text-center">
                     <div className="font-bold">{location.name}</div>
                     <div className="text-sm">{location.address}</div>
-                    <a href={location.googleMapsUrl} target="_blank" rel="noopener noreferrer">
-                      <Button size="sm" className="mt-2 w-full">
-                        Ver en Google Maps
-                      </Button>
+                    <a
+                      href={location.googleMapsUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-block bg-primary text-primary-foreground px-3 py-1 rounded-md mt-2 text-sm hover:bg-primary/90 transition-colors"
+                    >
+                      Ver en Google Maps
                     </a>
                   </div>
                 </Popup>
