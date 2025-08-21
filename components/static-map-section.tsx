@@ -10,7 +10,7 @@ const locations = [
   },
   {
     name: "Hotel Ritz",
-    iframe: `<iframe src="https://www.google.com/maps/embed?pb=!4v1755804585553!6m8!1m7!1s23zB49Zauz1MTF0Mdek8qQ!2m2!1d-12.00457993362086!2d-77.00514631176918!3f60.450806881836996!4f18.267282315532853!5f0.7820865974627469" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`,
+    iframe: `<iframe src="https://www.google.com/maps/embed?pb=!4v1755804585553!6m8!1m7!1s23zB49Zauz1MTF0Mdek8qQ!2m2!1d-12.00457993362086!2d-77.00514631176918!3f60.450806881836996!4f18.267282315532853!5f0.7820865974627469" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`,
   },
   {
     name: "Hotel Hilton",
