@@ -10,7 +10,7 @@ const hotels = [
     slug: "hilton",
     icon: Building2,
     description: "Confort y accesibilidad garantizada con nuestro moderno ascensor. Ideal para todos nuestros huéspedes.",
-    image: "/elegant-classic-hilton.png",
+    iframe: `<iframe src="https://www.google.com/maps/embed?pb=!4v1755798783761!6m8!1m7!1sfRgpvovIAgBGitOuqbX4Dg!2m2!1d-12.00436321635708!2d-77.00514798140715!3f150.34937143887115!4f17.370729949657616!5f0.7820865974627469" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`,
     location: "Jr. Las Perlas con Av. Jardines",
     rooms: "120 Habitaciones",
     color: "text-blue-600",
@@ -21,7 +21,7 @@ const hotels = [
     slug: "ritz",
     icon: Crown,
     description: "Disfruta del lujo a un precio inteligente. Ofrecemos tarifas por noche o por horas para máxima flexibilidad.",
-    image: "/luxury-hotel.png",
+    iframe: `<iframe src="https://www.google.com/maps/embed?pb=!3m2!1ses-419!2spe!4v1755798150632!5m2!1ses-419!2spe!6m8!1m7!1s23zB49Zauz1MTF0Mdek8qQ!2m2!1d-12.00457993362086!2d-77.00514631176918!3f82.17384735766197!4f14.43841138219716!5f0.7820865974627469" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`,
     location: "Jr. Las Perlas con Av. Jardines",
     rooms: "85 Suites",
     color: "text-amber-600",
@@ -32,7 +32,7 @@ const hotels = [
     slug: "vegas",
     icon: Sparkles,
     description: "Vive la modernidad en nuestro hotel más nuevo, equipado con Smart TVs de 60 pulgadas para tu entretenimiento.",
-    image: "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?cb_client=maps_sv.tactile&w=900&h=600&pitch=-14.365394861732995&panoid=hcAszFgax2id0lyXsTpB6w&yaw=238.471041617586",
+    iframe: `<iframe src="https://www.google.com/maps/embed?pb=!4v1755798004185!6m8!1m7!1shcAszFgax2id0lyXsTpB6w!2m2!1d-12.00466285277052!2d-77.00510246179547!3f234.9788544567365!4f13.178634655875555!5f0.7820865974627469" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`,
     location: "Jr. Las Perlas con Av. Jardines",
     rooms: "200 Habitaciones",
     color: "text-purple-600",
@@ -43,7 +43,7 @@ const hotels = [
     slug: "venus",
     icon: Star,
     description: "Perfecto para familias y grupos. Ofrecemos amplias habitaciones dobles y triples para su comodidad.",
-    image: "/celestial-luxury-hotel.png",
+    iframe: `<iframe src="https://www.google.com/maps/embed?pb=!4v1755798689084!6m8!1m7!1sxlKOQObUzk5LpzrM-PkjzA!2m2!1d-12.00356281369926!2d-77.00255966348512!3f57.93!4f18.349999999999994!5f0.7820865974627469" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`,
     location: "Av. 13 de Enero con Orquideas",
     rooms: "150 Habitaciones",
     color: "text-rose-600",
@@ -67,12 +67,8 @@ export function HotelsGrid() {
           {hotels.map((hotel) => {
             const Icon = hotel.icon
             return (
-              <Card key={hotel.slug} className="group hover:shadow-lg transition-all duration-300 overflow-hidden">
-                <div className="relative">
-                  <div className="h-48 bg-cover bg-center" style={{ backgroundImage: `url('${hotel.image}')` }}>
-                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
-                  </div>
-                </div>
+              <Card key={hotel.slug} className="group hover:shadow-lg transition-all duration-300 overflow-hidden flex flex-col">
+                <div className="relative h-48 w-full" dangerouslySetInnerHTML={{ __html: hotel.iframe }} />
 
                 <CardHeader className="pb-3">
                   <div className="flex items-center space-x-2 mb-2">
