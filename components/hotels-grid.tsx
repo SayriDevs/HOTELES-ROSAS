@@ -32,7 +32,7 @@ const hotels = [
     slug: "vegas",
     icon: Sparkles,
     description: "Vive la modernidad en nuestro hotel más nuevo, equipado con Smart TVs de 60 pulgadas para tu entretenimiento.",
-    image: "/modern-vegas-hotel.png",
+    image: "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?cb_client=maps_sv.tactile&w=900&h=600&pitch=-14.365394861732995&panoid=hcAszFgax2id0lyXsTpB6w&yaw=238.471041617586",
     location: "Jr. Las Perlas con Av. Jardines",
     rooms: "200 Habitaciones",
     color: "text-purple-600",
