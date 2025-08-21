@@ -12,7 +12,7 @@ const locations = [
     address: "Jr. Las Perlas con Av. Jardines",
   },
   {
-    position: [-12.08, -77.00],
+    position: [-11.9689301, -76.9939836],
     name: "Hotel Venus",
     address: "Av. 13 de Enero con Orquideas",
   },
@@ -28,7 +28,7 @@ const customIcon = new L.Icon({
 
 
 export function MapSection() {
-  const centerPosition = [-12.06, -77.02] // A central point between the two locations
+  const centerPosition = [-12.00765, -77.01839] // A central point between the two locations
 
   return (
     <section className="py-16">
