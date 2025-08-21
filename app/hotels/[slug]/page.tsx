@@ -152,11 +152,16 @@ const roomTypes = {
 }
 
 export default function HotelPage({ params }: { params: { slug: string } }) {
-  const hotel = hotelsData[params.slug as keyof typeof hotelsData]
+  const hotelData = hotelsData[params.slug as keyof typeof hotelsData]
   const rooms = roomTypes[params.slug as keyof typeof roomTypes]
 
-  if (!hotel) {
+  if (!hotelData) {
     notFound()
+  }
+
+  const hotel = {
+    ...hotelData,
+    slug: params.slug,
   }
 
   return (
@@ -164,7 +169,7 @@ export default function HotelPage({ params }: { params: { slug: string } }) {
       <Navigation />
       <HotelHero hotel={hotel} />
       <HotelAmenities amenities={hotel.amenities} hotelName={hotel.name} />
-      <RoomGallery rooms={rooms} hotelName={hotel.name} />
+      {params.slug !== "hilton" && <RoomGallery rooms={rooms} hotelName={hotel.name} />}
       <ChatbotWidget />
     </main>
   )

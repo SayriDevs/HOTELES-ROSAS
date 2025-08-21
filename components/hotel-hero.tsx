@@ -1,14 +1,16 @@
 "use client"
 
+import { useState } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Star, MapPin, Phone, Mail, Users } from "lucide-react"
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
+import { MapPin, Phone, Mail, Users, Youtube } from "lucide-react"
 
 interface HotelHeroProps {
   hotel: {
     name: string
+    slug: string
     description: string
     longDescription: string
     location: string
@@ -21,14 +23,7 @@ interface HotelHeroProps {
 }
 
 export function HotelHero({ hotel }: HotelHeroProps) {
-  const colorClasses = {
-    blue: "text-blue-600 bg-blue-50",
-    amber: "text-amber-600 bg-amber-50",
-    purple: "text-purple-600 bg-purple-50",
-    rose: "text-rose-600 bg-rose-50",
-  }
-
-  const colorClass = colorClasses[hotel.color as keyof typeof colorClasses] || colorClasses.blue
+  const [isModalOpen, setIsModalOpen] = useState(false)
 
   return (
     <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
@@ -55,14 +50,46 @@ export function HotelHero({ hotel }: HotelHeroProps) {
                   Reservar Ahora
                 </Button>
               </Link>
-              <Button
-                variant="outline"
-                size="lg"
-                className="text-lg px-8 bg-white/10 border-white/30 text-white hover:bg-white/20"
-                onClick={() => document.getElementById("rooms-section")?.scrollIntoView({ behavior: "smooth" })}
-              >
-                Ver Habitaciones
-              </Button>
+
+              {hotel.slug === "hilton" ? (
+                <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
+                  <DialogTrigger asChild>
+                    <Button
+                      variant="outline"
+                      size="lg"
+                      className="text-lg px-8 bg-white/10 border-white/30 text-white hover:bg-white/20"
+                    >
+                      <Youtube className="mr-2 h-5 w-5" />
+                      Ver Video
+                    </Button>
+                  </DialogTrigger>
+                  <DialogContent className="max-w-4xl p-0">
+                    <DialogHeader className="p-4">
+                      <DialogTitle>Video de Presentación - {hotel.name}</DialogTitle>
+                    </DialogHeader>
+                    <div className="aspect-video">
+                      <iframe
+                        width="100%"
+                        height="100%"
+                        src="https://www.youtube.com/embed/fu_fgH6eAjo"
+                        title="YouTube video player"
+                        frameBorder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                      ></iframe>
+                    </div>
+                  </DialogContent>
+                </Dialog>
+              ) : (
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="text-lg px-8 bg-white/10 border-white/30 text-white hover:bg-white/20"
+                  onClick={() => document.getElementById("rooms-section")?.scrollIntoView({ behavior: "smooth" })}
+                >
+                  Ver Habitaciones
+                </Button>
+              )}
             </div>
           </div>
 
