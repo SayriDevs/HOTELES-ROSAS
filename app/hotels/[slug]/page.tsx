@@ -14,7 +14,6 @@ const hotelsData = {
     location: "Jr. Las Perlas con Av. Jardines",
     phone: "+1 (555) 123-4567",
     email: "reservas@hilton-luxury.com",
-    rating: 4.8,
     totalRooms: 120,
     heroImage: "/hilton-exterior.png",
     color: "blue",
@@ -22,12 +21,11 @@ const hotelsData = {
       "Baño propio",
       "Cama de 2 plazas",
       "Agua caliente",
-      "Internet y Smart TV",
+      "Internet",
       "Ascensor",
       "Cochera",
-      "Gimnasio equipado",
-      "Restaurante gourmet",
       "Servicio de habitaciones 24h",
+      "Smart TV de 60 pulgadas",
     ],
   },
   ritz: {
@@ -38,7 +36,6 @@ const hotelsData = {
     location: "Jr. Las Perlas con Av. Jardines",
     phone: "+1 (555) 234-5678",
     email: "concierge@ritz-luxury.com",
-    rating: 4.9,
     totalRooms: 85,
     heroImage: "/ritz-exterior.png",
     color: "amber",
@@ -46,11 +43,11 @@ const hotelsData = {
       "Baño propio",
       "Cama de 2 plazas",
       "Agua caliente",
-      "Internet y Smart TV",
+      "Internet",
       "Cochera",
       "Tarifas flexibles",
-      "Restaurante",
-      "Spa de lujo",
+      "Servicio de habitaciones 24h",
+      "Smart TV de 60 pulgadas",
     ],
   },
   vegas: {
@@ -61,7 +58,6 @@ const hotelsData = {
     location: "Jr. Las Perlas con Av. Jardines",
     phone: "+1 (555) 345-6789",
     email: "info@vegas-luxury.com",
-    rating: 4.7,
     totalRooms: 200,
     heroImage: "/vegas-exterior.png",
     color: "purple",
@@ -70,11 +66,9 @@ const hotelsData = {
       "Cama de 2 plazas",
       "Agua caliente",
       "Internet",
-      "Smart TV de 60 pulgadas",
       "Cochera",
-      "Casino de lujo",
-      "Discoteca exclusiva",
-      "Piscina con fiestas",
+      "Servicio de habitaciones 24h",
+      "Smart TV de 60 pulgadas",
     ],
   },
   venus: {
@@ -85,7 +79,6 @@ const hotelsData = {
     location: "Av. 13 de Enero con Orquideas",
     phone: "+1 (555) 456-7890",
     email: "reservations@venus-luxury.com",
-    rating: 4.8,
     totalRooms: 150,
     heroImage: "/venus-exterior.png",
     color: "rose",
@@ -93,11 +86,11 @@ const hotelsData = {
       "Baño propio",
       "Cama de 2 plazas",
       "Agua caliente",
-      "Internet y Smart TV",
+      "Internet",
       "Habitaciones dobles",
       "Habitaciones triples",
-      "Vistas panorámicas",
-      "Jardín zen privado",
+      "Servicio de habitaciones 24h",
+      "Smart TV de 60 pulgadas",
     ],
   },
 }
@@ -170,8 +163,8 @@ export default function HotelPage({ params }: { params: { slug: string } }) {
     <main className="min-h-screen">
       <Navigation />
       <HotelHero hotel={hotel} />
-      <RoomGallery rooms={rooms} hotelName={hotel.name} />
       <HotelAmenities amenities={hotel.amenities} hotelName={hotel.name} />
+      <RoomGallery rooms={rooms} hotelName={hotel.name} />
       <ChatbotWidget />
     </main>
   )

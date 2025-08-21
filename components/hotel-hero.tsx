@@ -14,7 +14,6 @@ interface HotelHeroProps {
     location: string
     phone: string
     email: string
-    rating: number
     totalRooms: number
     heroImage: string
     color: string
@@ -47,12 +46,7 @@ export function HotelHero({ hotel }: HotelHeroProps) {
       <div className="relative z-10 container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
           <div className="text-white">
-            <Badge variant="secondary" className="mb-4 bg-white/20 text-white border-white/30">
-              <Star className="w-3 h-3 mr-1 fill-yellow-400 text-yellow-400" />
-              {hotel.rating} Estrellas
-            </Badge>
-
-            <h1 className="font-serif font-bold text-4xl md:text-5xl mb-4">{hotel.name}</h1>
+            <h1 className="font-serif font-bold text-4xl md:text-5xl mb-4 pt-8">{hotel.name}</h1>
             <p className="text-xl mb-6 leading-relaxed">{hotel.description}</p>
 
             <div className="flex flex-col sm:flex-row gap-4 mb-8">

@@ -13,7 +13,6 @@ const hotels = [
     image: "/elegant-classic-hilton.png",
     location: "Jr. Las Perlas con Av. Jardines",
     rooms: "120 Habitaciones",
-    rating: 4.8,
     color: "text-blue-600",
     bgColor: "bg-blue-50",
   },
@@ -25,7 +24,6 @@ const hotels = [
     image: "/luxury-hotel.png",
     location: "Jr. Las Perlas con Av. Jardines",
     rooms: "85 Suites",
-    rating: 4.9,
     color: "text-amber-600",
     bgColor: "bg-amber-50",
   },
@@ -37,7 +35,6 @@ const hotels = [
     image: "/modern-vegas-hotel.png",
     location: "Jr. Las Perlas con Av. Jardines",
     rooms: "200 Habitaciones",
-    rating: 4.7,
     color: "text-purple-600",
     bgColor: "bg-purple-50",
   },
@@ -49,7 +46,6 @@ const hotels = [
     image: "/celestial-luxury-hotel.png",
     location: "Av. 13 de Enero con Orquideas",
     rooms: "150 Habitaciones",
-    rating: 4.8,
     color: "text-rose-600",
     bgColor: "bg-rose-50",
   },
@@ -75,12 +71,6 @@ export function HotelsGrid() {
                 <div className="relative">
                   <div className="h-48 bg-cover bg-center" style={{ backgroundImage: `url('${hotel.image}')` }}>
                     <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
-                    <div className="absolute top-4 right-4">
-                      <Badge variant="secondary" className="bg-white/90 text-black">
-                        <Star className="w-3 h-3 mr-1 fill-yellow-400 text-yellow-400" />
-                        {hotel.rating}
-                      </Badge>
-                    </div>
                   </div>
                 </div>
 
