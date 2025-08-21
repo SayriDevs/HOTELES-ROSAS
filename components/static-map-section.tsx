@@ -14,12 +14,11 @@ const locations = [
   },
   {
     name: "Hotel Hilton",
-    iframe: `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d975.6415813167737!2d-77.00569203038073!3d-12.004481287487527!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c58673094217%3A0xb37f5873645b3dfc!2sHOSTAL%20HILTONSTEISH!5e0!3m2!1ses-419!2spe!4v1755798092817!5m2!1ses-419!2spe" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`,
+    iframe: `<iframe src="https://www.google.com/maps/embed?pb=!4v1755798783761!6m8!1m7!1sfRgpvovIAgBGitOuqbX4Dg!2m2!1d-12.00436321635708!2d-77.00514798140715!3f150.34937143887115!4f17.370729949657616!5f0.7820865974627469" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`,
   },
   {
     name: "Hotel Venus",
-    address: "Av. 13 de Enero 1714-1736, Lima 15431",
-    googleMapsUrl: "https://maps.app.goo.gl/wFNqd97HLGcJDvja9",
+    iframe: `<iframe src="https://www.google.com/maps/embed?pb=!4v1755798689084!6m8!1m7!1sxlKOQObUzk5LpzrM-PkjzA!2m2!1d-12.00356281369926!2d-77.00255966348512!3f57.93!4f18.349999999999994!5f0.7820865974627469" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`,
   },
 ]
 
