@@ -11,8 +11,9 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu"
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 import { Badge } from "@/components/ui/badge"
-import { Building2, Star, Sparkles, Crown } from "lucide-react"
+import { Building2, Star, Sparkles, Crown, ArrowRight } from "lucide-react"
 
 const hotels = [
   {
@@ -87,14 +88,6 @@ export function Navigation() {
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <Link href="/reservations" legacyBehavior passHref>
-                  <NavigationMenuLink className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50">
-                    Reservas
-                  </NavigationMenuLink>
-                </Link>
-              </NavigationMenuItem>
-
-              <NavigationMenuItem>
                 <Link href="/offers" legacyBehavior passHref>
                   <NavigationMenuLink className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50">
                     <span className="flex items-center space-x-1">
@@ -114,9 +107,38 @@ export function Navigation() {
             <Button variant="outline" size="sm" className="hidden md:inline-flex bg-transparent">
               Iniciar Sesión
             </Button>
-            <Link href="/reservations">
-              <Button size="sm">Reservar Ahora</Button>
-            </Link>
+
+            <Dialog>
+              <DialogTrigger asChild>
+                <Button size="sm">Reservar Ahora</Button>
+              </DialogTrigger>
+              <DialogContent className="sm:max-w-[425px]">
+                <DialogHeader>
+                  <DialogTitle>Reserva Inteligente</DialogTitle>
+                  <p className="text-sm text-muted-foreground pt-2">
+                    ¿En cuál de nuestros hoteles de lujo te gustaría hospedarte?
+                  </p>
+                </DialogHeader>
+                <div className="grid gap-4 py-4">
+                  {hotels.map((hotel) => {
+                    const Icon = hotel.icon
+                    return (
+                      <Link
+                        key={hotel.slug}
+                        href={`/reservations?hotel=${hotel.slug}`}
+                        className="flex items-center justify-between p-3 rounded-lg hover:bg-accent transition-colors"
+                      >
+                        <div className="flex items-center space-x-3">
+                          <Icon className={`h-5 w-5 ${hotel.color}`} />
+                          <span className="font-medium">{hotel.name}</span>
+                        </div>
+                        <ArrowRight className="h-4 w-4 text-muted-foreground" />
+                      </Link>
+                    )
+                  })}
+                </div>
+              </DialogContent>
+            </Dialog>
           </div>
         </div>
       </div>
