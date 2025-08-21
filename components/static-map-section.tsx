@@ -1,20 +1,25 @@
 "use client"
 
-import Image from "next/image"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { MapPin } from "lucide-react"
 
 const locations = [
   {
-    name: "Hoteles Hilton, Ritz & Vegas",
-    address: "Jr. Las Perlas con Av. Jardines",
-    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Jr.+Las+Perlas+con+Av.+Jardines",
+    name: "Hotel Vegas",
+    iframe: `<iframe src="https://www.google.com/maps/embed?pb=!4v1755798004185!6m8!1m7!1shcAszFgax2id0lyXsTpB6w!2m2!1d-12.00466285277052!2d-77.00510246179547!3f234.9788544567365!4f13.178634655875555!5f0.7820865974627469" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`,
+  },
+  {
+    name: "Hotel Ritz",
+    iframe: `<iframe src="https://www.google.com/maps/embed?pb=!3m2!1ses-419!2spe!4v1755798150632!5m2!1ses-419!2spe!6m8!1m7!1s23zB49Zauz1MTF0Mdek8qQ!2m2!1d-12.00457993362086!2d-77.00514631176918!3f82.17384735766197!4f14.43841138219716!5f0.7820865974627469" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`,
+  },
+  {
+    name: "Hotel Hilton",
+    iframe: `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d975.6415813167737!2d-77.00569203038073!3d-12.004481287487527!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c58673094217%3A0xb37f5873645b3dfc!2sHOSTAL%20HILTONSTEISH!5e0!3m2!1ses-419!2spe!4v1755798092817!5m2!1ses-419!2spe" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`,
   },
   {
     name: "Hotel Venus",
     address: "Av. 13 de Enero 1714-1736, Lima 15431",
-    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Av.+13+de+Enero+1714-1736,+Lima+15431",
+    googleMapsUrl: "https://maps.app.goo.gl/wFNqd97HLGcJDvja9",
   },
 ]
 
@@ -29,36 +34,29 @@ export function StaticMapSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-center">
-          {/* Map Image */}
-          <div className="lg:col-span-3 w-full h-[400px] rounded-lg overflow-hidden relative">
-            <Image
-              src="https://placehold.co/1200x800/e2e8f0/64748b?text=Mapa+de+Ubicaciones"
-              alt="Mapa de ubicaciones de los hoteles"
-              layout="fill"
-              objectFit="cover"
-            />
-          </div>
-
-          {/* Addresses */}
-          <div className="lg:col-span-2 space-y-6">
-            {locations.map((location, index) => (
-              <Card key={index}>
-                <CardHeader>
-                  <CardTitle className="flex items-center space-x-2">
-                    <MapPin className="h-5 w-5 text-primary" />
-                    <span>{location.name}</span>
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground mb-4">{location.address}</p>
-                  <a href={location.googleMapsUrl} target="_blank" rel="noopener noreferrer">
-                    <Button className="w-full">Ver en Google Maps</Button>
-                  </a>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {locations.map((location, index) => (
+            <Card key={index}>
+              <CardHeader>
+                <CardTitle>{location.name}</CardTitle>
+              </CardHeader>
+              <CardContent>
+                {location.iframe ? (
+                  <div
+                    className="w-full h-[300px] rounded-md overflow-hidden"
+                    dangerouslySetInnerHTML={{ __html: location.iframe }}
+                  />
+                ) : (
+                  <div className="space-y-4">
+                    <p className="text-muted-foreground">{location.address}</p>
+                    <a href={location.googleMapsUrl} target="_blank" rel="noopener noreferrer">
+                      <Button className="w-full">Ver en Google Maps</Button>
+                    </a>
+                  </div>
+                )}
+              </CardContent>
+            </Card>
+          ))}
         </div>
       </div>
     </section>
