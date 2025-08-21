@@ -15,7 +15,6 @@ function NavigationMenu({
 }) {
   return (
     <NavigationMenuPrimitive.Root
-      delayDuration={0}
       data-slot="navigation-menu"
       data-viewport={viewport}
       className={cn(
