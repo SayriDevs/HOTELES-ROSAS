@@ -21,7 +21,7 @@ const hotels = [
     slug: "ritz",
     icon: Crown,
     description: "Disfruta del lujo a un precio inteligente. Ofrecemos tarifas por noche o por horas para máxima flexibilidad.",
-    iframe: `<iframe src="https://www.google.com/maps/embed?pb=!3m2!1ses-419!2spe!4v1755798150632!5m2!1ses-419!2spe!6m8!1m7!1s23zB49Zauz1MTF0Mdek8qQ!2m2!1d-12.00457993362086!2d-77.00514631176918!3f82.17384735766197!4f14.43841138219716!5f0.7820865974627469" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`,
+    iframe: `<iframe src="https://www.google.com/maps/embed?pb=!4v1755804585553!6m8!1m7!1s23zB49Zauz1MTF0Mdek8qQ!2m2!1d-12.00457993362086!2d-77.00514631176918!3f60.450806881836996!4f18.267282315532853!5f0.7820865974627469" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`,
     location: "Jr. Las Perlas con Av. Jardines",
     rooms: "85 Suites",
     color: "text-amber-600",
