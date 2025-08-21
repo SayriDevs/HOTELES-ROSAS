@@ -33,16 +33,16 @@ export function StaticMapSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 gap-12">
           {locations.map((location, index) => (
             <Card key={index}>
               <CardHeader>
-                <CardTitle>{location.name}</CardTitle>
+                <CardTitle className="text-2xl">{location.name}</CardTitle>
               </CardHeader>
               <CardContent>
                 {location.iframe ? (
                   <div
-                    className="w-full h-[300px] rounded-md overflow-hidden"
+                    className="w-full h-[450px] rounded-md overflow-hidden"
                     dangerouslySetInnerHTML={{ __html: location.iframe }}
                   />
                 ) : (
