@@ -3,6 +3,7 @@
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet"
 import "leaflet/dist/leaflet.css"
 import L from "leaflet"
+import { Button } from "@/components/ui/button"
 
 // Placeholder coordinates for the two locations
 const locations = [
@@ -10,11 +11,13 @@ const locations = [
     position: [-12.046374, -77.042793],
     name: "Hoteles Hilton, Ritz & Vegas",
     address: "Jr. Las Perlas con Av. Jardines",
+    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=-12.046374,-77.042793",
   },
   {
     position: [-11.9689301, -76.9939836],
     name: "Hotel Venus",
     address: "Av. 13 de Enero con Orquideas",
+    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=XXWV%2B6X4",
   },
 ]
 
@@ -31,7 +34,7 @@ export function MapSection() {
   const centerPosition = [-12.00765, -77.01839] // A central point between the two locations
 
   return (
-    <section className="py-16">
+    <section id="ubicacion" className="py-16">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="font-serif font-bold text-3xl md:text-4xl mb-4">Nuestras Ubicaciones</h2>
@@ -40,7 +43,7 @@ export function MapSection() {
           </p>
         </div>
         <div className="h-[500px] w-full rounded-lg overflow-hidden">
-          <MapContainer center={centerPosition} zoom={13} scrollWheelZoom={false} style={{ height: "100%", width: "100%" }}>
+          <MapContainer center={centerPosition} zoom={15} scrollWheelZoom={true} style={{ height: "100%", width: "100%" }}>
             <TileLayer
               attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -48,8 +51,15 @@ export function MapSection() {
             {locations.map((location, index) => (
               <Marker key={index} position={location.position} icon={customIcon}>
                 <Popup>
-                  <div className="font-bold">{location.name}</div>
-                  <div>{location.address}</div>
+                  <div className="text-center">
+                    <div className="font-bold">{location.name}</div>
+                    <div className="text-sm">{location.address}</div>
+                    <a href={location.googleMapsUrl} target="_blank" rel="noopener noreferrer">
+                      <Button size="sm" className="mt-2 w-full">
+                        Ver en Google Maps
+                      </Button>
+                    </a>
+                  </div>
                 </Popup>
               </Marker>
             ))}

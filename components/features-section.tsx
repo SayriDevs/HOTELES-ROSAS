@@ -40,7 +40,7 @@ const amenities = [
 
 export function FeaturesSection() {
   return (
-    <section className="py-16">
+    <section id="servicios" className="py-16">
       <div className="container mx-auto px-4">
         {/* Main Features */}
         <div className="text-center mb-12">

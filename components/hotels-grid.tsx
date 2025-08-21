@@ -9,10 +9,11 @@ const hotels = [
     name: "Hotel Hilton",
     slug: "hilton",
     icon: Building2,
-    description: "Elegancia clásica con la comodidad de un ascensor privado.",
+    description: "Elegancia clásica y servicio excepcional en el corazón de la ciudad",
     image: "/elegant-classic-hilton.png",
-    location: "Jr. Las Perlas con Av. Jardines",
+    location: "Centro Financiero",
     rooms: "120 Habitaciones",
+    rating: 4.8,
     color: "text-blue-600",
     bgColor: "bg-blue-50",
   },
@@ -20,10 +21,11 @@ const hotels = [
     name: "Hotel Ritz",
     slug: "ritz",
     icon: Crown,
-    description: "Lujo asequible con tarifas flexibles por noche o por horas.",
+    description: "Lujo refinado y tradición centenaria con servicios de clase mundial",
     image: "/luxury-hotel.png",
-    location: "Jr. Las Perlas con Av. Jardines",
+    location: "Zona Exclusiva",
     rooms: "85 Suites",
+    rating: 4.9,
     color: "text-amber-600",
     bgColor: "bg-amber-50",
   },
@@ -31,10 +33,11 @@ const hotels = [
     name: "Hotel Vegas",
     slug: "vegas",
     icon: Sparkles,
-    description: "El más nuevo y moderno, con Smart TVs de 60 pulgadas.",
+    description: "Entretenimiento y glamour sin límites en un ambiente vibrante",
     image: "/modern-vegas-hotel.png",
-    location: "Jr. Las Perlas con Av. Jardines",
+    location: "Distrito de Entretenimiento",
     rooms: "200 Habitaciones",
+    rating: 4.7,
     color: "text-purple-600",
     bgColor: "bg-purple-50",
   },
@@ -42,10 +45,11 @@ const hotels = [
     name: "Hotel Venus",
     slug: "venus",
     icon: Star,
-    description: "Ideal para grupos y familias, con habitaciones dobles y triples.",
+    description: "Experiencia celestial y confort supremo con vistas panorámicas",
     image: "/celestial-luxury-hotel.png",
-    location: "Av. 13 de Enero con Orquideas",
+    location: "Vista Panorámica",
     rooms: "150 Habitaciones",
+    rating: 4.8,
     color: "text-rose-600",
     bgColor: "bg-rose-50",
   },
@@ -71,6 +75,12 @@ export function HotelsGrid() {
                 <div className="relative">
                   <div className="h-48 bg-cover bg-center" style={{ backgroundImage: `url('${hotel.image}')` }}>
                     <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
+                    <div className="absolute top-4 right-4">
+                      <Badge variant="secondary" className="bg-white/90 text-black">
+                        <Star className="w-3 h-3 mr-1 fill-yellow-400 text-yellow-400" />
+                        {hotel.rating}
+                      </Badge>
+                    </div>
                   </div>
                 </div>
 
