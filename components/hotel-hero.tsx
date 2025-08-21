@@ -5,6 +5,7 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
+import { VisuallyHidden } from "@radix-ui/react-visually-hidden"
 import { MapPin, Phone, Mail, Users, Youtube } from "lucide-react"
 
 interface HotelHeroProps {
@@ -62,6 +63,11 @@ export function HotelHero({ hotel }: HotelHeroProps) {
                   </Button>
                 </DialogTrigger>
                 <DialogContent className="max-w-6xl p-0 bg-transparent border-0">
+                  <VisuallyHidden asChild>
+                    <DialogHeader>
+                      <DialogTitle>Video de Presentación - {hotel.name}</DialogTitle>
+                    </DialogHeader>
+                  </VisuallyHidden>
                   <div className="aspect-video">
                     <iframe
                       width="100%"
