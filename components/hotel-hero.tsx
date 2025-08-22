@@ -7,6 +7,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden"
 import { MapPin, Phone, Mail, Users, Youtube } from "lucide-react"
+import Image from "next/image"
 
 interface HotelHeroProps {
   hotel: {
@@ -28,14 +29,14 @@ export function HotelHero({ hotel }: HotelHeroProps) {
   return (
     <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
       {/* Background Image */}
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: `url('${hotel.heroImage}')`,
-        }}
-      >
-        <div className="absolute inset-0 bg-black/50" />
-      </div>
+      <Image
+        src={hotel.heroImage}
+        alt={`Exterior de ${hotel.name}`}
+        fill
+        className="object-cover"
+        priority
+      />
+      <div className="absolute inset-0 bg-black/50" />
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4">
