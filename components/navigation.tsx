@@ -55,7 +55,7 @@ export function Navigation() {
         <div className="flex h-16 items-center justify-between">
           <Link href="/" className="flex items-center space-x-2">
             <Building2 className="h-8 w-8 text-primary" />
-            <span className="font-serif font-bold text-xl">Luxury Hotels</span>
+            <span className="font-serif font-bold text-xl">HOTELES ROSAS</span>
           </Link>
 
           <NavigationMenu className="hidden md:flex">
