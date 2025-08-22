@@ -13,7 +13,12 @@ export async function generateStaticParams() {
   }))
 }
 
-export default function HotelPage({ params }: { params: { slug: string } }) {
+type Props = {
+  params: { slug: string }
+  searchParams: { [key: string]: string | string[] | undefined }
+}
+
+export default function HotelPage({ params }: Props) {
   const hotelData = hotelsData[params.slug as keyof typeof hotelsData]
 
   if (!hotelData) {
