@@ -264,7 +264,7 @@ export function LostItemForm() {
                       mode="single"
                       selected={formData.checkOutDate}
                       onSelect={(date) => setFormData({ ...formData, checkOutDate: date })}
-                      disabled={(date) => date > new Date() || (formData.checkInDate && date < formData.checkInDate)}
+                      disabled={(date) => date > new Date() || !!(formData.checkInDate && date < formData.checkInDate)}
                       initialFocus
                     />
                   </PopoverContent>
