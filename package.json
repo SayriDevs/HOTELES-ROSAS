@@ -2,9 +2,9 @@
   "name": "my-v0-project",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://<tu-usuario>.github.io/<nombre-de-tu-repositorio>",
+  "homepage": "https://SayriDevs.github.io/HOTELES-ROSAS",
   "scripts": {
-    "build": "next build",
+    "build": "NODE_ENV=production next build",
     "dev": "next dev",
     "lint": "next lint",
     "start": "next start",
