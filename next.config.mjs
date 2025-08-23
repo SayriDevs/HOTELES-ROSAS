@@ -1,13 +1,12 @@
 /** @type {import('next').NextConfig} */
 
-const forGhPages = process.env.FOR_GH_PAGES === 'true';
 const repoName = 'HOTELES-ROSAS';
 
 const nextConfig = {
   output: 'export',
   distDir: 'out',
-  basePath: forGhPages ? `/${repoName}`: undefined,
-  assetPrefix: forGhPages ? `/${repoName}/`: undefined,
+  basePath: `/${repoName}`,
+  assetPrefix: `/${repoName}/`,
   images: {
     unoptimized: true,
   }
