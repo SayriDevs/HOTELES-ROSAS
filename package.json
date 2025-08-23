@@ -5,7 +5,7 @@
   "homepage": "https://SayriDevs.github.io/HOTELES-ROSAS",
   "scripts": {
     "dev": "next dev",
-    "build": "cross-env FOR_GH_PAGES=true next build",
+    "build": "next build && cp public/.nojekyll out/.nojekyll",
     "build:local": "next build",
     "serve": "npx serve out",
     "lint": "next lint",

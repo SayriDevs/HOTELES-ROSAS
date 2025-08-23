@@ -6,7 +6,7 @@ const nextConfig = {
   output: 'export',
   distDir: 'out',
   basePath: `/${repoName}`,
-  assetPrefix: `/${repoName}/`,
+  assetPrefix: `/${repoName}`,
   images: {
     unoptimized: true,
   }
