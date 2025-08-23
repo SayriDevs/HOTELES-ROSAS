@@ -8,7 +8,7 @@ export const hotelsData = {
     phone: "+1 (555) 123-4567",
     email: "reservas@hilton-luxury.com",
     totalRooms: 120,
-    heroImage: "/hilton-exterior.png",
+    heroImage: "/HOTELES-ROSAS/hilton-exterior.png",
     color: "blue",
     amenities: [
       "Baño propio",
@@ -30,7 +30,7 @@ export const hotelsData = {
     phone: "+1 (555) 234-5678",
     email: "concierge@ritz-luxury.com",
     totalRooms: 85,
-    heroImage: "/ritz-exterior.png",
+    heroImage: "/HOTELES-ROSAS/ritz-exterior.png",
     color: "amber",
     amenities: [
       "Baño propio",
@@ -52,7 +52,7 @@ export const hotelsData = {
     phone: "+1 (555) 345-6789",
     email: "info@vegas-luxury.com",
     totalRooms: 200,
-    heroImage: "/vegas-exterior.png",
+    heroImage: "/HOTELES-ROSAS/vegas-exterior.png",
     color: "purple",
     amenities: [
       "Baño propio",
@@ -73,7 +73,7 @@ export const hotelsData = {
     phone: "+1 (555) 456-7890",
     email: "reservations@venus-luxury.com",
     totalRooms: 150,
-    heroImage: "/venus-exterior.png",
+    heroImage: "/HOTELES-ROSAS/venus-exterior.png",
     color: "rose",
     amenities: [
       "Baño propio",
