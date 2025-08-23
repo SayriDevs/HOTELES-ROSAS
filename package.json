@@ -2,16 +2,16 @@
   "name": "my-v0-project",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://SayriDevs.github.io/HOTELES-ROSAS",
+  "homepage": "https://sayridevs.github.io/HOTELES-ROSAS",
   "scripts": {
     "dev": "next dev",
-    "build": "next build && cp public/.nojekyll out/.nojekyll",
+    "build": "next build",
     "build:local": "next build",
     "serve": "npx serve out",
     "lint": "next lint",
     "start": "next start",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d out"
+    "deploy": "gh-pages -d out --dotfiles"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
