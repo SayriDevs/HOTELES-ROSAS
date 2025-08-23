@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -10,14 +11,14 @@ export function HeroSection() {
   return (
     <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
       {/* Background Image */}
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: `url('/luxury-hotel-lobby.png')`,
-        }}
-      >
-        <div className="absolute inset-0 bg-black/40" />
-      </div>
+      <Image
+        src="/luxury-hotel-lobby.png"
+        alt="Lobby de un hotel de lujo"
+        fill
+        className="object-cover"
+        priority
+      />
+      <div className="absolute inset-0 bg-black/40" />
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 text-center text-white">

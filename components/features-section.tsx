@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { MessageSquare, Package, Percent, Calendar, Wifi, Car, Utensils, Dumbbell } from "lucide-react"
+import { MessageSquare, Package, Percent, Calendar, Wifi, Car, Utensils, Dumbbell, Clock, Bath, BedDouble, Thermometer, Tv } from "lucide-react"
 
 const features = [
   {
@@ -12,10 +12,10 @@ const features = [
     link: "/reservations",
   },
   {
-    icon: MessageSquare,
-    title: "Comentarios",
-    description: "Comparte tu experiencia y lee reseñas de otros huéspedes",
-    link: "/reviews",
+    icon: Clock,
+    title: "Atención 24 Horas",
+    description: "Nuestro equipo está disponible a toda hora para asistirte.",
+    link: "/",
   },
   {
     icon: Package,
@@ -32,15 +32,15 @@ const features = [
 ]
 
 const amenities = [
-  { icon: Wifi, name: "WiFi Gratuito" },
-  { icon: Car, name: "Valet Parking" },
-  { icon: Utensils, name: "Restaurante Gourmet" },
-  { icon: Dumbbell, name: "Gimnasio 24h" },
+  { icon: Bath, name: "Baño Propio" },
+  { icon: BedDouble, name: "Cama de 2 Plazas" },
+  { icon: Thermometer, name: "Agua Caliente" },
+  { icon: Tv, name: "Smart TV 60\" e Internet" },
 ]
 
 export function FeaturesSection() {
   return (
-    <section className="py-16">
+    <section id="servicios" className="py-16">
       <div className="container mx-auto px-4">
         {/* Main Features */}
         <div className="text-center mb-12">
@@ -73,7 +73,7 @@ export function FeaturesSection() {
 
         {/* Amenities */}
         <div className="bg-muted/30 rounded-lg p-8">
-          <h3 className="font-serif font-semibold text-2xl text-center mb-8">Amenidades Premium</h3>
+          <h3 className="font-serif font-semibold text-2xl text-center mb-8">Comodidades en Todas las Habitaciones</h3>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {amenities.map((amenity, index) => {
               const Icon = amenity.icon

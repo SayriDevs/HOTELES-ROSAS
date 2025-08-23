@@ -1,10 +1,13 @@
 "use client"
 
+import { useState } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Star, MapPin, Phone, Mail, Users } from "lucide-react"
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
+import { VisuallyHidden } from "@radix-ui/react-visually-hidden"
+import { MapPin, Phone, Mail, Users, Youtube } from "lucide-react"
+import Image from "next/image"
 
 interface HotelHeroProps {
   hotel: {
@@ -14,7 +17,6 @@ interface HotelHeroProps {
     location: string
     phone: string
     email: string
-    rating: number
     totalRooms: number
     heroImage: string
     color: string
@@ -22,37 +24,25 @@ interface HotelHeroProps {
 }
 
 export function HotelHero({ hotel }: HotelHeroProps) {
-  const colorClasses = {
-    blue: "text-blue-600 bg-blue-50",
-    amber: "text-amber-600 bg-amber-50",
-    purple: "text-purple-600 bg-purple-50",
-    rose: "text-rose-600 bg-rose-50",
-  }
-
-  const colorClass = colorClasses[hotel.color as keyof typeof colorClasses] || colorClasses.blue
+  const [isModalOpen, setIsModalOpen] = useState(false)
 
   return (
     <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
       {/* Background Image */}
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: `url('${hotel.heroImage}')`,
-        }}
-      >
-        <div className="absolute inset-0 bg-black/50" />
-      </div>
+      <Image
+        src={hotel.heroImage}
+        alt={`Exterior de ${hotel.name}`}
+        fill
+        className="object-cover"
+        priority
+      />
+      <div className="absolute inset-0 bg-black/50" />
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
           <div className="text-white">
-            <Badge variant="secondary" className="mb-4 bg-white/20 text-white border-white/30">
-              <Star className="w-3 h-3 mr-1 fill-yellow-400 text-yellow-400" />
-              {hotel.rating} Estrellas
-            </Badge>
-
-            <h1 className="font-serif font-bold text-4xl md:text-5xl mb-4">{hotel.name}</h1>
+            <h1 className="font-serif font-bold text-4xl md:text-5xl mb-4 pt-8">{hotel.name}</h1>
             <p className="text-xl mb-6 leading-relaxed">{hotel.description}</p>
 
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
@@ -61,14 +51,37 @@ export function HotelHero({ hotel }: HotelHeroProps) {
                   Reservar Ahora
                 </Button>
               </Link>
-              <Button
-                variant="outline"
-                size="lg"
-                className="text-lg px-8 bg-white/10 border-white/30 text-white hover:bg-white/20"
-                onClick={() => document.getElementById("rooms-section")?.scrollIntoView({ behavior: "smooth" })}
-              >
-                Ver Habitaciones
-              </Button>
+
+              <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
+                <DialogTrigger asChild>
+                  <Button
+                    variant="outline"
+                    size="lg"
+                    className="text-lg px-8 bg-white/10 border-white/30 text-white hover:bg-white/20"
+                  >
+                    <Youtube className="mr-2 h-5 w-5" />
+                    Ver Video de Habitaciones
+                  </Button>
+                </DialogTrigger>
+                <DialogContent className="max-w-6xl p-0 bg-transparent border-0">
+                  <VisuallyHidden asChild>
+                    <DialogHeader>
+                      <DialogTitle>Video de Presentación - {hotel.name}</DialogTitle>
+                    </DialogHeader>
+                  </VisuallyHidden>
+                  <div className="aspect-video">
+                    <iframe
+                      width="100%"
+                      height="100%"
+                      src="https://www.youtube.com/embed/fu_fgH6eAjo?autoplay=1"
+                      title="YouTube video player"
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    ></iframe>
+                  </div>
+                </DialogContent>
+              </Dialog>
             </div>
           </div>
 

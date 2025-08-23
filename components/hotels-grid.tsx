@@ -9,11 +9,10 @@ const hotels = [
     name: "Hotel Hilton",
     slug: "hilton",
     icon: Building2,
-    description: "Elegancia clásica y servicio excepcional en el corazón de la ciudad",
-    image: "/elegant-classic-hilton.png",
-    location: "Centro Financiero",
+    description: "Confort y accesibilidad garantizada con nuestro moderno ascensor. Ideal para todos nuestros huéspedes.",
+    iframe: `<iframe src="https://www.google.com/maps/embed?pb=!4v1755798783761!6m8!1m7!1sfRgpvovIAgBGitOuqbX4Dg!2m2!1d-12.00436321635708!2d-77.00514798140715!3f150.34937143887115!4f17.370729949657616!5f0.7820865974627469" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`,
+    location: "Jr. Las Perlas con Av. Jardines",
     rooms: "120 Habitaciones",
-    rating: 4.8,
     color: "text-blue-600",
     bgColor: "bg-blue-50",
   },
@@ -21,11 +20,10 @@ const hotels = [
     name: "Hotel Ritz",
     slug: "ritz",
     icon: Crown,
-    description: "Lujo refinado y tradición centenaria con servicios de clase mundial",
-    image: "/luxury-hotel.png",
-    location: "Zona Exclusiva",
+    description: "Disfruta del lujo a un precio inteligente. Ofrecemos tarifas por noche o por horas para máxima flexibilidad.",
+    iframe: `<iframe src="https://www.google.com/maps/embed?pb=!4v1755804585553!6m8!1m7!1s23zB49Zauz1MTF0Mdek8qQ!2m2!1d-12.00457993362086!2d-77.00514631176918!3f60.450806881836996!4f18.267282315532853!5f0.7820865974627469" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`,
+    location: "Jr. Las Perlas con Av. Jardines",
     rooms: "85 Suites",
-    rating: 4.9,
     color: "text-amber-600",
     bgColor: "bg-amber-50",
   },
@@ -33,11 +31,10 @@ const hotels = [
     name: "Hotel Vegas",
     slug: "vegas",
     icon: Sparkles,
-    description: "Entretenimiento y glamour sin límites en un ambiente vibrante",
-    image: "/modern-vegas-hotel.png",
-    location: "Distrito de Entretenimiento",
+    description: "Vive la modernidad en nuestro hotel más nuevo, equipado con Smart TVs de 60 pulgadas para tu entretenimiento.",
+    iframe: `<iframe src="https://www.google.com/maps/embed?pb=!4v1755798004185!6m8!1m7!1shcAszFgax2id0lyXsTpB6w!2m2!1d-12.00466285277052!2d-77.00510246179547!3f234.9788544567365!4f13.178634655875555!5f0.7820865974627469" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`,
+    location: "Jr. Las Perlas con Av. Jardines",
     rooms: "200 Habitaciones",
-    rating: 4.7,
     color: "text-purple-600",
     bgColor: "bg-purple-50",
   },
@@ -45,11 +42,10 @@ const hotels = [
     name: "Hotel Venus",
     slug: "venus",
     icon: Star,
-    description: "Experiencia celestial y confort supremo con vistas panorámicas",
-    image: "/celestial-luxury-hotel.png",
-    location: "Vista Panorámica",
+    description: "Perfecto para familias y grupos. Ofrecemos amplias habitaciones dobles y triples para su comodidad.",
+    iframe: `<iframe src="https://www.google.com/maps/embed?pb=!4v1755798689084!6m8!1m7!1sxlKOQObUzk5LpzrM-PkjzA!2m2!1d-12.00356281369926!2d-77.00255966348512!3f57.93!4f18.349999999999994!5f0.7820865974627469" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`,
+    location: "Av. 13 de Enero con Orquideas",
     rooms: "150 Habitaciones",
-    rating: 4.8,
     color: "text-rose-600",
     bgColor: "bg-rose-50",
   },
@@ -71,18 +67,8 @@ export function HotelsGrid() {
           {hotels.map((hotel) => {
             const Icon = hotel.icon
             return (
-              <Card key={hotel.slug} className="group hover:shadow-lg transition-all duration-300 overflow-hidden">
-                <div className="relative">
-                  <div className="h-48 bg-cover bg-center" style={{ backgroundImage: `url('${hotel.image}')` }}>
-                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
-                    <div className="absolute top-4 right-4">
-                      <Badge variant="secondary" className="bg-white/90 text-black">
-                        <Star className="w-3 h-3 mr-1 fill-yellow-400 text-yellow-400" />
-                        {hotel.rating}
-                      </Badge>
-                    </div>
-                  </div>
-                </div>
+              <Card key={hotel.slug} className="group hover:shadow-lg transition-all duration-300 overflow-hidden flex flex-col">
+                <div className="relative h-48 w-full" dangerouslySetInnerHTML={{ __html: hotel.iframe }} />
 
                 <CardHeader className="pb-3">
                   <div className="flex items-center space-x-2 mb-2">

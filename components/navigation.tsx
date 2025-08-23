@@ -11,8 +11,9 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu"
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 import { Badge } from "@/components/ui/badge"
-import { Building2, Star, Sparkles, Crown } from "lucide-react"
+import { Building2, Star, Sparkles, Crown, ArrowRight } from "lucide-react"
 
 const hotels = [
   {
@@ -54,46 +55,39 @@ export function Navigation() {
         <div className="flex h-16 items-center justify-between">
           <Link href="/" className="flex items-center space-x-2">
             <Building2 className="h-8 w-8 text-primary" />
-            <span className="font-serif font-bold text-xl">Luxury Hotels</span>
+            <span className="font-serif font-bold text-xl">HOTELES ROSAS</span>
           </Link>
 
           <NavigationMenu className="hidden md:flex">
             <NavigationMenuList>
               <NavigationMenuItem>
-                <NavigationMenuTrigger className="font-medium">Nuestros Hoteles</NavigationMenuTrigger>
-                <NavigationMenuContent>
-                  <div className="grid w-[600px] gap-3 p-4 md:grid-cols-2">
-                    {hotels.map((hotel) => {
-                      const Icon = hotel.icon
-                      return (
-                        <NavigationMenuLink key={hotel.slug} asChild>
-                          <Link
-                            href={`/hotels/${hotel.slug}`}
-                            className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
-                          >
-                            <div className="flex items-center space-x-2">
-                              <Icon className={`h-5 w-5 ${hotel.color}`} />
-                              <div className="text-sm font-medium leading-none">{hotel.name}</div>
-                            </div>
-                            <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                              {hotel.description}
-                            </p>
-                          </Link>
-                        </NavigationMenuLink>
-                      )
-                    })}
-                  </div>
-                </NavigationMenuContent>
-              </NavigationMenuItem>
-
-              <NavigationMenuItem>
-                <Link href="/reservations" legacyBehavior passHref>
+                <Link href="/#hotels-section" legacyBehavior passHref>
                   <NavigationMenuLink className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50">
-                    Reservas
+                    Hoteles
                   </NavigationMenuLink>
                 </Link>
               </NavigationMenuItem>
-
+              <NavigationMenuItem>
+                <Link href="/#servicios" legacyBehavior passHref>
+                  <NavigationMenuLink className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50">
+                    Servicios
+                  </NavigationMenuLink>
+                </Link>
+              </NavigationMenuItem>
+              <NavigationMenuItem>
+                <Link href="/#testimonios" legacyBehavior passHref>
+                  <NavigationMenuLink className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50">
+                    Testimonios
+                  </NavigationMenuLink>
+                </Link>
+              </NavigationMenuItem>
+              <NavigationMenuItem>
+                <Link href="/#ubicacion" legacyBehavior passHref>
+                  <NavigationMenuLink className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50">
+                    Ubicación
+                  </NavigationMenuLink>
+                </Link>
+              </NavigationMenuItem>
               <NavigationMenuItem>
                 <Link href="/offers" legacyBehavior passHref>
                   <NavigationMenuLink className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50">
@@ -107,31 +101,47 @@ export function Navigation() {
                 </Link>
               </NavigationMenuItem>
 
-              <NavigationMenuItem>
-                <Link href="/reviews" legacyBehavior passHref>
-                  <NavigationMenuLink className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50">
-                    Reseñas
-                  </NavigationMenuLink>
-                </Link>
-              </NavigationMenuItem>
-
-              <NavigationMenuItem>
-                <Link href="/services" legacyBehavior passHref>
-                  <NavigationMenuLink className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50">
-                    Servicios
-                  </NavigationMenuLink>
-                </Link>
-              </NavigationMenuItem>
             </NavigationMenuList>
           </NavigationMenu>
 
           <div className="flex items-center space-x-2">
-            <Button variant="outline" size="sm" className="hidden md:inline-flex bg-transparent">
-              Iniciar Sesión
-            </Button>
-            <Link href="/reservations">
-              <Button size="sm">Reservar Ahora</Button>
+            <Link href="/login">
+              <Button variant="outline" size="sm" className="hidden md:inline-flex bg-transparent">
+                Iniciar Sesión
+              </Button>
             </Link>
+
+            <Dialog>
+              <DialogTrigger asChild>
+                <Button size="sm">Reservar Ahora</Button>
+              </DialogTrigger>
+              <DialogContent className="sm:max-w-[425px]">
+                <DialogHeader>
+                  <DialogTitle>Reserva Inteligente</DialogTitle>
+                  <p className="text-sm text-muted-foreground pt-2">
+                    ¿En cuál de nuestros hoteles de lujo te gustaría hospedarte?
+                  </p>
+                </DialogHeader>
+                <div className="grid gap-4 py-4">
+                  {hotels.map((hotel) => {
+                    const Icon = hotel.icon
+                    return (
+                      <Link
+                        key={hotel.slug}
+                        href={`/reservations?hotel=${hotel.slug}`}
+                        className="flex items-center justify-between p-3 rounded-lg hover:bg-accent transition-colors"
+                      >
+                        <div className="flex items-center space-x-3">
+                          <Icon className={`h-5 w-5 ${hotel.color}`} />
+                          <span className="font-medium">{hotel.name}</span>
+                        </div>
+                        <ArrowRight className="h-4 w-4 text-muted-foreground" />
+                      </Link>
+                    )
+                  })}
+                </div>
+              </DialogContent>
+            </Dialog>
           </div>
         </div>
       </div>

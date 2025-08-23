@@ -1,14 +1,15 @@
 /** @type {import('next').NextConfig} */
+
+const repoName = 'HOTELES-ROSAS';
+
 const nextConfig = {
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
-  typescript: {
-    ignoreBuildErrors: true,
-  },
+  output: 'export',
+  distDir: 'out',
+  basePath: `/${repoName}`,
+  assetPrefix: `/${repoName}/`,
   images: {
     unoptimized: true,
-  },
-}
+  }
+};
 
-export default nextConfig
+export default nextConfig;
