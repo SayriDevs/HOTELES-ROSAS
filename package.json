@@ -4,8 +4,10 @@
   "private": true,
   "homepage": "https://SayriDevs.github.io/HOTELES-ROSAS",
   "scripts": {
-    "build": "NODE_ENV=production next build",
     "dev": "next dev",
+    "build": "FOR_GH_PAGES=true next build",
+    "build:local": "next build",
+    "serve": "npx serve out",
     "lint": "next lint",
     "start": "next start",
     "predeploy": "npm run build",
