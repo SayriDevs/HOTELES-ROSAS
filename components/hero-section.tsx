@@ -12,7 +12,7 @@ export function HeroSection() {
     <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
       {/* Background Image */}
       <Image
-        src="/luxury-hotel-lobby.png"
+        src="/HOTELES-ROSAS/luxury-hotel-lobby.png"
         alt="Lobby de un hotel de lujo"
         fill
         className="object-cover"
